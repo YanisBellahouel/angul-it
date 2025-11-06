@@ -1,1 +1,43 @@
-<p>home works!</p>
+<div class="home-container">
+	<div class="content">
+		<!-- 🎯 En-tête -->
+		<div class="header">
+			<h1>🔒 Captcha Challenge</h1>
+			<p class="subtitle">Prouvez que vous êtes humain !</p>
+		</div>
+
+		<!-- 📋 Description -->
+		<div class="description">
+			<p>Vous devrez compléter 3 étapes de validation :</p>
+			<ul class="steps-list">
+				<li>
+					<span class="step-number">1</span>
+					<div class="step-info">
+						<strong>Sélection d'images</strong>
+						<span>Identifiez les bonnes images dans une grille</span>
+					</div>
+				</li>
+				<li>
+					<span class="step-number">2</span>
+					<div class="step-info">
+						<strong>Calcul mathématique</strong>
+						<span>Résolvez un problème simple</span>
+					</div>
+				</li>
+				<li>
+					<span class="step-number">3</span>
+					<div class="step-info">
+						<strong>Saisie de texte</strong>
+						<span>Recopiez le texte affiché</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 🚀 Bouton de démarrage -->
+		<button class="start-button" (click)="startChallenge()">Commencer le challenge</button>
+
+		<!-- ℹ️ Info -->
+		<p class="info-text">Votre progression sera sauvegardée automatiquement</p>
+	</div>
+</div>
