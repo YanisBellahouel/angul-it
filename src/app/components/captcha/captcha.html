@@ -1,1 +1,72 @@
-<p>captcha works!</p>
+<div class="captcha-container">
+  <!-- 📊 Stepper (barre de progression) -->
+  <div class="stepper">
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progress()"></div>
+    </div>
+
+    <div class="steps">
+      @for (step of [
+        { number: 1, label: 'Images' },
+        { number: 2, label: 'Math' },
+        { number: 3, label: 'Texte' }
+      ]; track step.number) {
+        <div
+          class="step"
+          [class.completed]="getStepStatus($index) === 'completed'"
+          [class.current]="getStepStatus($index) === 'current'"
+          [class.pending]="getStepStatus($index) === 'pending'"
+        >
+          <div class="step-circle">
+            @if (getStepStatus($index) === 'completed') {
+              <span>✓</span>
+            } @else {
+              <span>{{ step.number }}</span>
+            }
+          </div>
+          <span class="step-label">{{ step.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- 🎯 Contenu des étapes -->
+  <div class="step-content">
+    @switch (currentStep()) {
+      @case (0) {
+        <app-image-selection
+          (completed)="onStepCompleted()"
+        />
+      }
+      @case (1) {
+        <app-math-problem
+          (completed)="onStepCompleted()"
+        />
+      }
+      @case (2) {
+        <app-text-input
+          (completed)="onStepCompleted()"
+        />
+      }
+    }
+  </div>
+
+  <!-- 🎮 Navigation -->
+  <div class="navigation">
+    <button
+      class="btn-secondary"
+      (click)="goToHome()"
+    >
+      Annuler
+    </button>
+
+    @if (currentStep() > 0) {
+      <button
+        class="btn-secondary"
+        (click)="goToPreviousStep()"
+      >
+        ← Précédent
+      </button>
+    }
+  </div>
+</div>

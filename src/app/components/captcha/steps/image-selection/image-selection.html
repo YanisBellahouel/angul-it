@@ -1,1 +1,56 @@
-<p>image-selection works!</p>
+
+<div class="image-selection">
+  <!-- 📋 Instruction -->
+  <div class="instruction">
+    <h2>Étape 1 : Sélection d'images</h2>
+    @if (challenge) {
+      <p class="challenge-text">{{ challenge.instruction }}</p>
+    }
+  </div>
+
+  <!-- 🖼️ Grille d'images -->
+  @if (challenge) {
+    <div class="image-grid">
+      @for (image of challenge.images; track $index) {
+        <div
+          class="image-cell"
+          [class.selected]="isSelected($index)"
+          (click)="toggleSelection($index)"
+        >
+          <div class="image-content">
+            {{ image }}
+          </div>
+          @if (isSelected($index)) {
+            <div class="selection-overlay">
+              <span class="checkmark">✓</span>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  <!-- ⚠️ Message d'erreur -->
+  @if (showError) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+
+  <!-- ℹ️ Info -->
+  <div class="info">
+    <p>Cliquez sur les images correspondantes, puis validez</p>
+    <p class="selected-count">
+      {{ selectedIndexes.length }} image(s) sélectionnée(s)
+    </p>
+  </div>
+
+  <!-- ✅ Bouton de validation -->
+  <button
+    class="validate-button"
+    (click)="validate()"
+    [disabled]="selectedIndexes.length === 0"
+  >
+    Valider la sélection
+  </button>
+</div>
