@@ -1,0 +1,151 @@
+
+.math-problem {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.instruction {
+  text-align: center;
+
+  h2 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .challenge-text {
+    font-size: 1.125rem;
+    color: #4a5568;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+// 🧮 Question
+.question-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.question {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2d3748;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 16px;
+  border: 3px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5rem;
+  text-align: center;
+}
+
+// ✍️ Champ de saisie
+.input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.answer-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 3px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.2s;
+  font-weight: 600;
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  &.error {
+    border-color: #fc8181;
+    animation: shake 0.5s;
+  }
+
+  &::placeholder {
+    color: #cbd5e0;
+    font-weight: normal;
+  }
+}
+
+// ⚠️ Message d'erreur
+.error-message {
+  padding: 1rem;
+  background: #fed7d7;
+  border: 2px solid #fc8181;
+  border-radius: 8px;
+  color: #c53030;
+  text-align: center;
+  font-weight: 600;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+// ℹ️ Info
+.info {
+  text-align: center;
+  color: #718096;
+  font-size: 0.875rem;
+
+  p {
+    margin: 0.25rem 0;
+  }
+
+  .hint {
+    font-style: italic;
+    color: #a0aec0;
+  }
+}
+
+// ✅ Bouton de validation
+.validate-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 640px) {
+  .question {
+    font-size: 2rem;
+    padding: 1.5rem 2rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .answer-input {
+    font-size: 1.25rem;
+  }
+}

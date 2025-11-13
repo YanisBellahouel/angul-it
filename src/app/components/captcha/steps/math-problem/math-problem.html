@@ -1,1 +1,53 @@
-<p>math-problem works!</p>
+
+<div class="math-problem">
+  <!-- 📋 Instruction -->
+  <div class="instruction">
+    <h2>Étape 2 : Calcul mathématique</h2>
+    <p class="challenge-text">Résolvez le calcul suivant</p>
+  </div>
+
+  <!-- 🧮 Question mathématique -->
+  @if (challenge) {
+    <div class="question-container">
+      <div class="question">
+        {{ challenge.question }}
+      </div>
+    </div>
+
+    <!-- ✍️ Champ de saisie -->
+    <div class="input-container">
+      <input
+        type="text"
+        class="answer-input"
+        [(ngModel)]="userAnswer"
+        (input)="onInputChange()"
+        (keypress)="onKeyPress($event)"
+        placeholder="Votre réponse"
+        [class.error]="showError"
+        autofocus
+      />
+    </div>
+  }
+
+  <!-- ⚠️ Message d'erreur -->
+  @if (showError) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+
+  <!-- ℹ️ Info -->
+  <div class="info">
+    <p>Entrez uniquement le résultat numérique</p>
+    <p class="hint">💡 Vous pouvez aussi appuyer sur Entrée</p>
+  </div>
+
+  <!-- ✅ Bouton de validation -->
+  <button
+    class="validate-button"
+    (click)="validate()"
+    [disabled]="userAnswer.trim() === ''"
+  >
+    Valider la réponse
+  </button>
+</div>
