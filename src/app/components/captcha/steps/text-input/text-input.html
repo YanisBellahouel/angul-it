@@ -1,1 +1,54 @@
-<p>text-input works!</p>
+
+<div class="text-input">
+  <!-- 📋 Instruction -->
+  <div class="instruction">
+    <h2>Étape 3 : Saisie de texte</h2>
+    <p class="challenge-text">Recopiez le texte affiché ci-dessous</p>
+  </div>
+
+  <!-- 🎨 Texte déformé à recopier -->
+  @if (challenge) {
+    <div class="captcha-display">
+      <div class="captcha-text">
+        {{ challenge.text }}
+      </div>
+    </div>
+
+    <!-- ✍️ Champ de saisie -->
+    <div class="input-container">
+      <input
+        type="text"
+        class="text-input-field"
+        [(ngModel)]="userAnswer"
+        (input)="onInputChange()"
+        (keypress)="onKeyPress($event)"
+        placeholder="Entrez le texte ici"
+        [class.error]="showError"
+        autocomplete="off"
+        autofocus
+      />
+    </div>
+  }
+
+  <!-- ⚠️ Message d'erreur -->
+  @if (showError) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+
+  <!-- ℹ️ Info -->
+  <div class="info">
+    <p>Le texte n'est pas sensible à la casse (majuscules/minuscules)</p>
+    <p class="hint">💡 Vous pouvez aussi appuyer sur Entrée</p>
+  </div>
+
+  <!-- ✅ Bouton de validation -->
+  <button
+    class="validate-button"
+    (click)="validate()"
+    [disabled]="userAnswer.trim() === ''"
+  >
+    Terminer le challenge
+  </button>
+</div>
