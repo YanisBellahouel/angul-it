@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CaptchaService } from '../../../../services/captcha';
+import { CaptchaService } from '../../../../services/captcha.services';
 import { ImageChallenge } from '../../../../models/captcha.models';
 
 /**

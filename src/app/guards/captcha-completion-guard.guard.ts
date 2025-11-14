@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { CaptchaService } from '../services/captcha';
+import { CaptchaService } from '../services/captcha.services';
 
 /**
  * 🛡️ Guard qui protège la route /result

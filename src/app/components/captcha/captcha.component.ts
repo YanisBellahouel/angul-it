@@ -1,10 +1,10 @@
 import { Component, OnInit, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { CaptchaService } from '../../services/captcha';
-import { ImageSelectionComponent } from './steps/image-selection/image-selection';
-import { MathProblemComponent } from './steps/math-problem/math-problem';
-import { TextInputComponent } from './steps/text-input/text-input';
+import { CaptchaService } from '../../services/captcha.services';
+import { ImageSelectionComponent } from './steps/image-selection/image-selection.component';
+import { MathProblemComponent } from './steps/math-problem/math-problem.component';
+import { TextInputComponent } from './steps/text-input/text-input.component';
 
 @Component({
   selector: 'app-captcha',

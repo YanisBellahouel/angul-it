@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home';
-import { CaptchaComponent } from './components/captcha/captcha';
-import { ResultComponent } from './components/result/result';
-import { captchaCompletionGuard } from './guards/captcha-completion-guard';
+import { HomeComponent } from './components/home/home.component';
+import { CaptchaComponent } from './components/captcha/captcha.component';
+import { ResultComponent } from './components/result/result.component';
+import { captchaCompletionGuard } from './guards/captcha-completion-guard.guard';
 
 /**
  * 🛣️ Configuration des routes de l'application

@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { CaptchaService } from '../../services/captcha';
+import { CaptchaService } from '../../services/captcha.services';
 import { CaptchaResult } from '../../models/captcha.models';
 
 /**

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CaptchaService } from '../../services/captcha';
+import { CaptchaService } from '../../services/captcha.services';
 
 /**
  * 🏠 Composant de la page d'accueil

@@ -2,7 +2,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CaptchaService } from '../../../../services/captcha';
+import { CaptchaService } from '../../../../services/captcha.services';
 import { TextChallenge } from '../../../../models/captcha.models';
 
 /**
